@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h2>List of Games</h2>
+  </div>
+  <div class="col-sm-6 align-bottom">
+    <button class="btn btn-primary pull-right" routerLink="/games/create">Create new game</button>
+  </div>
+</div>
+<table class="table table-striped" style="text-align: left">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Preview</th>
+    <th>Name</th>
+    <th>Platforms</th>
+    <th>Released</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let game of games | async">
+    <td>
+      <div class="btn-group">
+        <button routerLink="/games/detail/{{game.id}}" class="btn btn-secondary btn-sm">
+          <i class="fa fa-search"></i>
+        </button>
+        <button routerLink="/games/edit/{{game.id}}" class="btn btn-info btn-sm">
+          <i class="fa fa-pencil-square-o"></i>
+        </button>
+        <button (click)="delete(game.id)" class="btn btn-danger btn-sm">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+    </td>
+    <td><img *ngIf="game.image" src="assets/images/{{game.image}}" alt="{{game.name}}" width="80px" height="80px"/></td>
+    <td>{{game.name}}</td>
+    <td>{{game.platforms}}</td>
+    <td>{{game.releaseDate}}</td>
+  </tr>
+  </tbody>
+</table>

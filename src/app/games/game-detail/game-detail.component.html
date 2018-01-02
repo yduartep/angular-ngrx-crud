@@ -1,0 +1,30 @@
+<h2>Game Details</h2>
+<div *ngIf="game | async; let game;">
+  <div class="row">
+    <label class="col-sm-2">Name:</label>
+    <div class="col-sm-9">{{game.name}}</div>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">Platforms: </label>
+    <div class="col-sm-9">{{game.platforms}}</div>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">Released: </label>
+    <div class="col-sm-9">{{game.releaseDate}}</div>
+  </div>
+  <div class="row">
+    <label class="col-sm-2">Preview:</label>
+    <div class="col-sm-9">
+      <img *ngIf="game.image" src="assets/images/{{game.image}}" alt="{{game.name}}"/>
+      <img *ngIf="!game.image" src="assets/images/not-available.png" width="130px" height="100px"/>
+    </div>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-secondary btn-sm" routerLink="/games">
+      <i class="fa fa-arrow-left"></i> Back
+    </button>
+    <button (click)="delete(game.id)" class="btn btn-danger btn-sm">
+      <i class="fa fa-times"></i> Delete
+    </button>
+  </div>
+</div>
