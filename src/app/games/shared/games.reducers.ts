@@ -25,32 +25,41 @@ export function reducer(state = initialState, action: AppAction): State {
     /*************************
      * GET all games actions
      ************************/
-    case gameActions.GET_GAMES: return {...state, action: gameActions.GET_GAMES, done: false};
-    case gameActions.GET_GAMES_SUCCESS: return {...state, data: action.payload, done: true};
-    case gameActions.GET_GAMES_ERROR: return {...state, done: false, error: action.payload};
+    case gameActions.GET_GAMES:
+      return {...state, action: gameActions.GET_GAMES, done: false};
+    case gameActions.GET_GAMES_SUCCESS:
+      return {...state, data: action.payload, done: true};
+    case gameActions.GET_GAMES_ERROR:
+      return {...state, done: true, error: action.payload};
 
     /*************************
      * GET game by id actions
      ************************/
-    case gameActions.GET_GAME: return {...state, action: gameActions.GET_GAME, done: false};
-    case gameActions.GET_GAME_SUCCESS: return {...state, selected: action.payload, done: true};
-    case gameActions.GET_GAME_ERROR: return {...state, selected: null, done: false, error: action.payload};
+    case gameActions.GET_GAME:
+      return {...state, action: gameActions.GET_GAME, done: false};
+    case gameActions.GET_GAME_SUCCESS:
+      return {...state, selected: action.payload, done: true};
+    case gameActions.GET_GAME_ERROR:
+      return {...state, selected: null, done: true, error: action.payload};
 
     /*************************
      * CREATE game actions
      ************************/
-    case gameActions.CREATE_GAME: return {...state, selected: action.payload, action: gameActions.CREATE_GAME, done: false};
+    case gameActions.CREATE_GAME:
+      return {...state, selected: action.payload, action: gameActions.CREATE_GAME, done: false};
     case gameActions.CREATE_GAME_SUCCESS: {
       const newGame = {...state.selected, id: action.payload};
       const data = [...state.data, newGame];
       return {...state, data, selected: null, done: true};
     }
-    case gameActions.CREATE_GAME_ERROR: return {...state, selected: null, done: false, error: action.payload};
+    case gameActions.CREATE_GAME_ERROR:
+      return {...state, selected: null, done: true, error: action.payload};
 
     /*************************
      * UPDATE game actions
      ************************/
-    case gameActions.UPDATE_GAME: return {...state, selected: action.payload, action: gameActions.UPDATE_GAME, done: false};
+    case gameActions.UPDATE_GAME:
+      return {...state, selected: action.payload, action: gameActions.UPDATE_GAME, done: false};
     case gameActions.UPDATE_GAME_SUCCESS: {
       const index = state.data.findIndex(h => h.id === state.selected.id);
       if (index >= 0) {
@@ -59,7 +68,8 @@ export function reducer(state = initialState, action: AppAction): State {
       }
       return state;
     }
-    case gameActions.UPDATE_GAME_ERROR: return {...state, done: false, error: action.payload};
+    case gameActions.UPDATE_GAME_ERROR:
+      return {...state, done: true, error: action.payload};
 
     /*************************
      * DELETE game actions
@@ -72,7 +82,8 @@ export function reducer(state = initialState, action: AppAction): State {
       const data = state.data.filter(h => h.id !== state.selected.id);
       return {...state, data, selected: null, done: true};
     }
-    case gameActions.DELETE_GAME_ERROR: return {...state, selected: null, done: false, error: action.payload};
+    case gameActions.DELETE_GAME_ERROR:
+      return {...state, selected: null, done: true, error: action.payload};
   }
   return state;
 }

@@ -134,3 +134,4 @@ export class UpdateGameError implements Action {
   constructor(public payload: Error) {
   }
 }
+

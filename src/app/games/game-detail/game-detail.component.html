@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <label class="col-sm-2">Platforms: </label>
-    <div class="col-sm-9">{{game.platforms}}</div>
+    <div class="col-sm-9">{{game.platforms | extractNames : platforms}}</div>
   </div>
   <div class="row">
     <label class="col-sm-2">Released: </label>

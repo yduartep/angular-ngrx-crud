@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AppState} from '../../app.state';
 import {Store} from '@ngrx/store';
 import {GetGame, UpdateGame} from '../shared/games.actions';
-import {getGame, getUpdateError, isUpdated} from '../shared/games.reducers';
+import {getGame} from '../shared/games.reducers';
 import {PlatformsService} from '../shared/platforms.service';
 import {Platform} from '../shared/platform';
 
@@ -42,17 +42,6 @@ export class GameEditComponent implements OnInit {
         });
       }
     });
-
-    this.store.select(isUpdated).subscribe(updated => {
-      if (updated) {
-        this.updateSuccess();
-      }
-    });
-    this.store.select(getUpdateError).subscribe(error => {
-      if (error) {
-        this.updateError();
-      }
-    });
   }
 
   /**
@@ -63,21 +52,6 @@ export class GameEditComponent implements OnInit {
       .filter((p) => p.checked === true)
       .map(p => p.id);
     this.store.dispatch(new UpdateGame(this.game));
-  }
-
-  /**
-   * Display success message after update the game
-   */
-  updateSuccess() {
-    alert('The game was updated successfully!!');
-    this.router.navigate(['/games']);
-  }
-
-  /**
-   * Display error message if update fails
-   */
-  updateError() {
-    alert('Error while trying to update the game');
   }
 
   /**

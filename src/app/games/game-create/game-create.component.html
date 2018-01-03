@@ -1,3 +1,59 @@
-<p>
-  game-create works!
-</p>
+<h1>Create new game</h1>
+
+<form #frmGame="ngForm" id="frmGame" novalidate (ngSubmit)="onSaveGame()" novalidate>
+  <div class="row">
+    <label class="control-label col-sm-3" for="txtName">Name *:</label>
+    <div class="col-sm-5">
+      <input id="txtName"
+             type="text"
+             class="form-control"
+             [(ngModel)]="game.name"
+             title="Name"
+             placeholder="Enter a name ..." [ngModelOptions]="{standalone: true}"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <label class="control-label col-sm-3" for="txtName">Platforms:</label>
+    <div class="col-sm-5">
+      <div *ngFor="let p of platforms; let i=index">
+        <input type="checkbox" [checked]="p.checked" [(ngModel)]="p.checked" [ngModelOptions]="{standalone: true}"/>
+        {{p.name}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <label class="control-label col-sm-3" for="txtDate">Released *:</label>
+    <div class="col-sm-5">
+      <input id="txtDate"
+             type="date"
+             class="form-control"
+             [(ngModel)]="game.releaseDate"
+             title="Release date"
+             placeholder="yyyy-mm-dd" [ngModelOptions]="{standalone: true}"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <label class="control-label col-sm-3" for="txtDate">Description:</label>
+    <div class="col-sm-5">
+      <textarea id="txtDesc"
+             class="form-control"
+             [(ngModel)]="game.description"
+             title="Name"
+             placeholder="Enter a description ..." [ngModelOptions]="{standalone: true}"
+      ></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Save game</button>
+    <div class="btn-group">
+      <button type="button" (click)="onBack()" class="btn btn-secondary btn-sm">
+        <i class="fa fa-arrow-left"></i> Back
+      </button>
+      <button type="button" (click)="reset()" *ngIf="mode > 0" class="btn btn-danger btn-sm">
+        <i class="fa fa-undo"></i> Reset
+      </button>
+    </div>
+  </div>
+</form>

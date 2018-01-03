@@ -5,6 +5,8 @@ import {Game} from '../shared/game';
 import {Observable} from 'rxjs/Observable';
 import * as gameActions from '../shared/games.actions';
 import {getAllGames} from '../shared/games.reducers';
+import {PlatformsService} from '../shared/platforms.service';
+import {Platform} from '../shared/platform';
 
 @Component({
   selector: 'app-game-list',
@@ -13,13 +15,18 @@ import {getAllGames} from '../shared/games.reducers';
 })
 export class GameListComponent implements OnInit {
   games: Observable<Game[]>;
+  platforms: Platform[] = [];
 
-  constructor(private store: Store<AppState>) {
+  constructor(private platformService: PlatformsService,
+              private store: Store<AppState>) {
   }
 
   ngOnInit() {
     console.log('... initializing Hero list component.');
 
+    this.platformService.findAll().subscribe(result => {
+      this.platforms = result;
+    });
     this.games = this.store.select(getAllGames);
   }
 

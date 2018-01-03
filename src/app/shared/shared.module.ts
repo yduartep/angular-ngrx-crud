@@ -11,6 +11,7 @@ import {PageNotFoundComponent} from './not-found/not-found.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
+import {ExtractNamesPipe} from './extract-names.pipe';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {EffectsModule} from '@ngrx/effects';
     EffectsModule
   ],
   declarations: [
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ExtractNamesPipe
   ],
   providers: [],
   exports: [
@@ -34,7 +36,8 @@ import {EffectsModule} from '@ngrx/effects';
     RouterModule,
     StoreModule,
     EffectsModule,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ExtractNamesPipe
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

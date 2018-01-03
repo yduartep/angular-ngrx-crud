@@ -43,10 +43,7 @@ export class PlatformsService {
    * @returns gets the response
    */
   public insert(data: Platform): Observable<Platform> {
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-
-    return this.http.post<Platform>(this.URL, JSON.stringify(data), {headers: headers});
+    return this.http.post<Platform>(this.URL, JSON.stringify(data), {headers: this.getHttpHeaders()});
   }
 
   /**
@@ -55,9 +52,16 @@ export class PlatformsService {
    * @returns gets the response
    */
   public update(data: Platform): Observable<Platform> {
+    return this.http.put<Platform>(this.URL + '/' + data.id, JSON.stringify(data), {headers: this.getHttpHeaders()});
+  }
+
+  /**
+   * Get the common HttpHeaders
+   */
+  private getHttpHeaders(): HttpHeaders {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-    return this.http.put<Platform>(this.URL + '/' + data.id, JSON.stringify(data), {headers: headers});
+    return headers;
   }
 }

@@ -3,7 +3,10 @@ import {Store} from '@ngrx/store';
 import {Router} from '@angular/router';
 import {AppState} from '../app.state';
 import {GetAllGames} from './shared/games.actions';
-import {getDeleteError, getGamesError, isDeleted} from './shared/games.reducers';
+import {
+  getCreateError, getDeleteError, getGamesError, getUpdateError, isCreated, isDeleted,
+  isUpdated
+} from './shared/games.reducers';
 
 @Component({
   selector: 'app-games',
@@ -29,12 +32,32 @@ export class GamesComponent implements OnInit {
     });
     this.store.select(isDeleted).subscribe((deleted) => {
       if (deleted) {
-        this.deleteSuccess();
+        this.actionSuccess('deleted');
       }
     });
     this.store.select(getDeleteError).subscribe((error) => {
       if (error) {
-        this.deleteError();
+        this.actionError('deleting');
+      }
+    });
+    this.store.select(isUpdated).subscribe((updated) => {
+      if (updated) {
+        this.actionSuccess('updated');
+      }
+    });
+    this.store.select(getUpdateError).subscribe((error) => {
+      if (error) {
+        this.actionError('updating');
+      }
+    });
+    this.store.select(isCreated).subscribe((created) => {
+      if (created) {
+        this.actionSuccess('created');
+      }
+    });
+    this.store.select(getCreateError).subscribe((error) => {
+      if (error) {
+        this.actionError('creating');
       }
     });
   }
@@ -47,17 +70,17 @@ export class GamesComponent implements OnInit {
   }
 
   /**
-   * Display success message after delete the hero
+   * Display success message after execute specific action over the game
    */
-  deleteSuccess() {
-    alert('The game was deleted successfully!!!');
+  actionSuccess(action) {
+    alert('The game was ' + action + ' successfully!!!');
     this.router.navigate(['/games']);
   }
 
   /**
-   * Display error message is deletion fails
+   * Display error message is execution of action fails
    */
-  deleteError() {
-    alert('Error while deleting the game');
+  actionError(action) {
+    alert('Error while ' + action + ' the game');
   }
 }

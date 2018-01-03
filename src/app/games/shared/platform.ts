@@ -1,5 +1,4 @@
-export class Platform {
-  id: number;
-  name: string;
-  checked = false;
+import {KeyName} from '../../shared/keyName';
+
+export class Platform extends KeyName {
 }

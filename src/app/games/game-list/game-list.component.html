@@ -33,7 +33,7 @@
     </td>
     <td><img *ngIf="game.image" src="assets/images/{{game.image}}" alt="{{game.name}}" width="80px" height="80px"/></td>
     <td>{{game.name}}</td>
-    <td>{{game.platforms}}</td>
+    <td>{{game.platforms | extractNames : platforms}}</td>
     <td>{{game.releaseDate}}</td>
   </tr>
   </tbody>
