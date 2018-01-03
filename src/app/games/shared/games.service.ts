@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Game} from './game';
 
@@ -42,7 +42,10 @@ export class GamesService {
    * @returns gets the response
    */
   public insert(data: Game): Observable<Game> {
-    return this.http.post<Game>(this.URL, JSON.stringify(data));
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
+    return this.http.post<Game>(this.URL, JSON.stringify(data), {headers: headers});
   }
 
   /**
@@ -55,6 +58,9 @@ export class GamesService {
     const data = {...game};
     delete data.id;
 
-    return this.http.put<Game>(this.URL + '/' + id, JSON.stringify(data));
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
+    return this.http.put<Game>(this.URL + '/' + id, JSON.stringify(data), {headers: headers});
   }
 }

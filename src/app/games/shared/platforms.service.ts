@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Platform} from './platform';
 
@@ -43,7 +43,10 @@ export class PlatformsService {
    * @returns gets the response
    */
   public insert(data: Platform): Observable<Platform> {
-    return this.http.post<Platform>(this.URL, JSON.stringify(data));
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
+    return this.http.post<Platform>(this.URL, JSON.stringify(data), {headers: headers});
   }
 
   /**
@@ -52,6 +55,9 @@ export class PlatformsService {
    * @returns gets the response
    */
   public update(data: Platform): Observable<Platform> {
-    return this.http.put<Platform>(this.URL + '/' + data.id, JSON.stringify(data));
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
+    return this.http.put<Platform>(this.URL + '/' + data.id, JSON.stringify(data), {headers: headers});
   }
 }
