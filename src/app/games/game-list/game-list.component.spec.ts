@@ -66,6 +66,24 @@ describe('GameListComponent', () => {
             selected: null,
             action: 'GET_GAMES',
             done: true
+          },
+          platforms: {
+            data: [
+              {
+                'id': 1,
+                'name': 'Xbox One'
+              },
+              {
+                'id': 2,
+                'name': 'PlayStation 4'
+              },
+              {
+                'id': 3,
+                'name': 'PC'
+              }
+            ],
+            action: 'GET_PLATFORMS',
+            done: true
           }
         })
         }

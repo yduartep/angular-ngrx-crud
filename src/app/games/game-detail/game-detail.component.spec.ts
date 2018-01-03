@@ -58,6 +58,24 @@ describe('GameDetailComponent', () => {
             },
             action: 'GET_GAME',
             done: true
+          },
+          platforms: {
+            data: [
+              {
+                'id': 1,
+                'name': 'Xbox One'
+              },
+              {
+                'id': 2,
+                'name': 'PlayStation 4'
+              },
+              {
+                'id': 3,
+                'name': 'PC'
+              }
+            ],
+            action: 'GET_PLATFORMS',
+            done: true
           }
         })
         }

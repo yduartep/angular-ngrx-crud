@@ -10,7 +10,7 @@ import {Store, StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {PlatformsService} from '../shared/platforms.service';
 import {GamesService} from '../shared/games.service';
-import {MockStore} from "../store/mock-store";
+import {MockStore} from '../store/mock-store';
 
 describe('GameEditComponent', () => {
   let component: GameEditComponent;
@@ -50,6 +50,24 @@ describe('GameEditComponent', () => {
               'description': 'Horizon Zero Dawn is an action role-playing video game developed by Guerrilla Games'
             },
             action: 'UPDATE_GAME',
+            done: true
+          },
+          platforms: {
+            data: [
+              {
+                'id': 1,
+                'name': 'Xbox One'
+              },
+              {
+                'id': 2,
+                'name': 'PlayStation 4'
+              },
+              {
+                'id': 3,
+                'name': 'PC'
+              }
+            ],
+            action: 'GET_PLATFORMS',
             done: true
           }
         })
