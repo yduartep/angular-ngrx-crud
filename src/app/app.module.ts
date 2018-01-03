@@ -6,11 +6,13 @@ import {SharedModule} from './shared/shared.module';
 
 // ngrx elements
 import * as gamesReducer from './games/store/games.reducers';
+import * as platformsReducer from './games/store/platforms.reducers';
 import {ActionReducerMap, StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 
 export const reducers: ActionReducerMap<any> = {
-  games: gamesReducer.reducer
+  games: gamesReducer.reducer,
+  platforms: platformsReducer.reducer
 };
 
 @NgModule({

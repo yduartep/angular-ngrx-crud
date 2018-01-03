@@ -9,12 +9,6 @@ import {GameCreateComponent} from './game-create/game-create.component';
 import {GameDetailComponent} from './game-detail/game-detail.component';
 import {GameEditComponent} from './game-edit/game-edit.component';
 
-// ngrx elements
-import {StoreModule} from '@ngrx/store';
-import {EffectsModule} from '@ngrx/effects';
-import {GameEffects} from './store/games.effects';
-import * as gameReducer from './store/games.reducers';
-
 export const gamesRoutes: Routes = <Routes>[{
   path: '',
   component: GamesComponent,
@@ -28,9 +22,7 @@ export const gamesRoutes: Routes = <Routes>[{
 
 @NgModule({
   imports: [
-    RouterModule.forChild(gamesRoutes),
-    StoreModule.forFeature('games', gameReducer.reducer),
-    EffectsModule.forRoot([GameEffects])
+    RouterModule.forChild(gamesRoutes)
   ],
   exports: [RouterModule]
 })

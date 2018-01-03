@@ -1,16 +1,6 @@
 {
   "games": [
     {
-      "id": 1,
-      "image": "horizon_zero_dawn.jpg",
-      "name": "Horizon Zero Dawn",
-      "releaseDate": "2017-02-28",
-      "platforms": [
-        2
-      ],
-      "description": "Horizon Zero Dawn is an action role-playing video game developed by Guerrilla Games and published by Sony Interactive Entertainment for PlayStation 4 and released in early 2017. The plot revolves around Aloy, a hunter and archer living in a world overrun by machines. Having been an outcast her whole life, she sets out to discover the dangers that kept her sheltered. The character uses ranged weapons and a spear and stealth tactics to combat the mechanised creatures, whose remains can be looted for resources. A skill tree provides the player with new abilities and passive bonuses. The game features an open world environment for Aloy to explore, while undertaking side and main story quests."
-    },
-    {
       "id": 2,
       "image": "destiny2.jpg",
       "name": "Destiny 2",
@@ -59,14 +49,14 @@
       "description": "Call of Duty: WWII is a first-person shooter video game developed by Sledgehammer Games and published by Activision. It is the fourteenth main installment in the Call of Duty series and was released worldwide on November 3, 2017 for Microsoft Windows, PlayStation 4 and Xbox One. It is the first title in the series to be set primarily during World War II since Call of Duty: World at War in 2008.[2] The game is set in the European theatre, and is centered around a squad in the 1st Infantry Division, following their battles on the Western Front, and set mainly in the historical events of Operation Overlord; the multiplayer expands to different fronts not seen in the campaign."
     },
     {
-      "id": 6,
       "image": "uncharted.jpg",
       "name": "Uncharted: The Lost Legacy",
-      "releaseDate": "2017-08-22",
+      "releaseDate": "2017-08-20",
       "platforms": [
         2
       ],
-      "description": "Uncharted: The Lost Legacy is an action-adventure game developed by Naughty Dog and published by Sony Interactive Entertainment. Released in August 2017 for the PlayStation 4, it is a standalone expansion to the Uncharted series, and is the first game not to feature protagonist Nathan Drake. The game follows fortune hunter Chloe Frazer, who seeks the Tusk of Ganesh in the mountains of India in the midst of a civil war, with the help of ex-mercenary Nadine Ross and Nathan's brother Sam Drake. The game is played from a third-person perspective; players use firearms, and can use melee combat and stealth to defend against hostile enemies. Players solve puzzles, incorporating several platformer elements to advance the narrative, and navigate the game world on foot or by vehicle."
+      "description": "Uncharted: The Lost Legacy is an action-adventure game developed by Naughty Dog and published by Sony Interactive Entertainment. Released in August 2017 for the PlayStation 4, it is a standalone expansion to the Uncharted series, and is the first game not to feature protagonist Nathan Drake. The game follows fortune hunter Chloe Frazer, who seeks the Tusk of Ganesh in the mountains of India in the midst of a civil war, with the help of ex-mercenary Nadine Ross and Nathan's brother Sam Drake. The game is played from a third-person perspective; players use firearms, and can use melee combat and stealth to defend against hostile enemies. Players solve puzzles, incorporating several platformer elements to advance the narrative, and navigate the game world on foot or by vehicle.",
+      "id": 6
     },
     {
       "id": 7,

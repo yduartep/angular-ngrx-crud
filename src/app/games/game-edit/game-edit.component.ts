@@ -5,8 +5,8 @@ import {AppState} from '../../app.state';
 import {Store} from '@ngrx/store';
 import {GetGame, UpdateGame} from '../store/games.actions';
 import {getGame} from '../store/games.reducers';
-import {PlatformsService} from '../shared/platforms.service';
 import {Platform} from '../shared/platform';
+import {getAllPlatforms} from '../store/platforms.reducers';
 
 @Component({
   selector: 'app-game-edit',
@@ -16,24 +16,21 @@ import {Platform} from '../shared/platform';
 export class GameEditComponent implements OnInit {
   title = 'Game Edition';
   game: Game;
-  platforms: Platform[] = [];
+  platforms: Platform[];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private platformService: PlatformsService,
               private store: Store<AppState>) {
 
   }
 
   ngOnInit() {
-    this.platformService.findAll().subscribe(result => {
-      this.platforms = result;
-    });
-
     this.route.params.subscribe(params => {
       this.store.dispatch(new GetGame(+params['id']));
     });
-
+    this.store.select(getAllPlatforms).subscribe(result => {
+      this.platforms = result;
+    });
     this.store.select(getGame).subscribe(game => {
       if (game != null) {
         this.game = game;
@@ -68,6 +65,8 @@ export class GameEditComponent implements OnInit {
   reset() {
     this.game.image = '';
     this.game.name = '';
+    this.game.description = '';
+    this.game.releaseDate = null;
   }
 
 }

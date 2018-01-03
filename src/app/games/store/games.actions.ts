@@ -22,7 +22,7 @@ export const UPDATE_GAME_SUCCESS = '[UPDATE] Game Success';
 export const UPDATE_GAME_ERROR = '[UPDATE] Game Error';
 
 /****************************************
- * GET all the heroes
+ * GET all the games
  ****************************************/
 export class GetAllGames implements Action {
   readonly type = GET_GAMES;
@@ -43,7 +43,7 @@ export class GetAllGamesError implements Action {
 }
 
 /****************************************
- * GET hero by id
+ * GET game by id
  ****************************************/
 export class GetGame implements Action {
   readonly type = GET_GAME;
@@ -67,7 +67,7 @@ export class GetGameError implements Action {
 }
 
 /****************************************
- * ADD new hero
+ * ADD new game
  ****************************************/
 export class AddGame implements Action {
   readonly type = CREATE_GAME;
@@ -91,7 +91,7 @@ export class AddGameError implements Action {
 }
 
 /****************************************
- * REMOVE a hero by id
+ * REMOVE a game by id
  ****************************************/
 export class RemoveGame implements Action {
   readonly type = DELETE_GAME;
@@ -115,7 +115,7 @@ export class RemoveGameError implements Action {
 }
 
 /****************************************
- * UPDATE hero by id
+ * UPDATE game by id
  ****************************************/
 export class UpdateGame implements Action {
   readonly type = UPDATE_GAME;
@@ -134,4 +134,3 @@ export class UpdateGameError implements Action {
   constructor(public payload: Error) {
   }
 }
-

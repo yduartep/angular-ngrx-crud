@@ -8,7 +8,7 @@ import {Game} from '../shared/game';
 import * as gameActions from '../store/games.actions';
 import {getGame} from '../store/games.reducers';
 import {Platform} from '../shared/platform';
-import {PlatformsService} from '../shared/platforms.service';
+import {getAllPlatforms} from '../store/platforms.reducers';
 
 @Component({
   selector: 'app-game-detail',
@@ -18,21 +18,17 @@ import {PlatformsService} from '../shared/platforms.service';
 export class GameDetailComponent implements OnInit {
   title = 'Game Details';
   game: Observable<Game>;
-  platforms: Platform[] = [];
+  platforms: Observable<Platform[]>;
 
   constructor(private route: ActivatedRoute,
-              private platformService: PlatformsService,
               private store: Store<AppState>) {
   }
 
   ngOnInit() {
-    this.platformService.findAll().subscribe(result => {
-      this.platforms = result;
-    });
-
     this.route.params.subscribe(params => {
       this.store.dispatch(new GetGame(+params['id']));
     });
+    this.platforms = this.store.select(getAllPlatforms);
     this.game = this.store.select(getGame);
   }
 

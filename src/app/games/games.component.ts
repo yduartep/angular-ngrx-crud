@@ -7,6 +7,7 @@ import {
   getCreateError, getDeleteError, getGamesError, getUpdateError, isCreated, isDeleted,
   isUpdated
 } from './store/games.reducers';
+import {GetAllPlatforms} from './store/platforms.actions';
 
 @Component({
   selector: 'app-games',
@@ -23,6 +24,7 @@ export class GamesComponent implements OnInit {
   ngOnInit() {
     console.log('... Initializing Heroes component');
     this.store.dispatch(new GetAllGames());
+    this.store.dispatch(new GetAllPlatforms());
 
     // subscriptions when success or error action
     this.store.select(getGamesError).subscribe((error) => {
