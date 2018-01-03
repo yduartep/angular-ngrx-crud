@@ -1,39 +1,38 @@
 {
   "games": [
     {
+      "id": 1,
       "image": "horizon_zero_dawn.jpg",
       "name": "Horizon Zero Dawn",
-      "releaseDate": "2017-05-25",
+      "releaseDate": "2017-02-28",
       "platforms": [
-        1,
-        2,
-        3
+        2
       ],
-      "description": "Horizon Zero Dawn is an action role-playing video game developed by Guerrilla Games and published by Sony Interactive Entertainment for PlayStation 4 and released in early 2017. The plot revolves around Aloy, a hunter and archer living in a world overrun by machines. Having been an outcast her whole life, she sets out to discover the dangers that kept her sheltered. The character uses ranged weapons and a spear and stealth tactics to combat the mechanised creatures, whose remains can be looted for resources. A skill tree provides the player with new abilities and passive bonuses. The game features an open world environment for Aloy to explore, while undertaking side and main story quests.",
-      "id": 1
+      "description": "Horizon Zero Dawn is an action role-playing video game developed by Guerrilla Games and published by Sony Interactive Entertainment for PlayStation 4 and released in early 2017. The plot revolves around Aloy, a hunter and archer living in a world overrun by machines. Having been an outcast her whole life, she sets out to discover the dangers that kept her sheltered. The character uses ranged weapons and a spear and stealth tactics to combat the mechanised creatures, whose remains can be looted for resources. A skill tree provides the player with new abilities and passive bonuses. The game features an open world environment for Aloy to explore, while undertaking side and main story quests."
     },
     {
+      "id": 2,
       "image": "destiny2.jpg",
       "name": "Destiny 2",
       "releaseDate": "2017-09-06",
       "platforms": [
         1,
+        2,
         3
       ],
-      "description": "Destiny 2 is an online-only multiplayer first-person shooter video game developed by Bungie and published by Activision. It was released for PlayStation 4 and Xbox One on September 6, 2017, followed by a Microsoft Windows version the following month. It is the sequel to 2014's Destiny and its subsequent expansions.",
-      "id": 2
+      "description": "Destiny 2 is an online-only multiplayer first-person shooter video game developed by Bungie and published by Activision. It was released for PlayStation 4 and Xbox One on September 6, 2017, followed by a Microsoft Windows version the following month. It is the sequel to 2014's Destiny and its subsequent expansions."
     },
     {
+      "id": 3,
       "image": "gran_turismo.jpg",
       "name": "Gran Turismo Sport",
-      "releaseDate": "2017-10-16",
+      "releaseDate": "2017-10-17",
       "platforms": [
         1,
         2,
         3
       ],
-      "description": "Gran Turismo Sport is the latest entry in the long-running simulation racing series, and it's no doubt going to be another graphical showcase for the PlayStation 4. Though the series has dedicated fans, it's most notorious for being the most expensive commercial for whatever Sony's current game console is.",
-      "id": 3
+      "description": "Gran Turismo Sport is the latest entry in the long-running simulation racing series, and it's no doubt going to be another graphical showcase for the PlayStation 4. Though the series has dedicated fans, it's most notorious for being the most expensive commercial for whatever Sony's current game console is."
     },
     {
       "id": 4,
