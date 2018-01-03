@@ -3,8 +3,8 @@ import {Game} from '../shared/game';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AppState} from '../../app.state';
 import {Store} from '@ngrx/store';
-import {GetGame, UpdateGame} from '../shared/games.actions';
-import {getGame} from '../shared/games.reducers';
+import {GetGame, UpdateGame} from '../store/games.actions';
+import {getGame} from '../store/games.reducers';
 import {PlatformsService} from '../shared/platforms.service';
 import {Platform} from '../shared/platform';
 
@@ -14,6 +14,7 @@ import {Platform} from '../shared/platform';
   styleUrls: ['./game-edit.component.css']
 })
 export class GameEditComponent implements OnInit {
+  title = 'Game Edition';
   game: Game;
   platforms: Platform[] = [];
 

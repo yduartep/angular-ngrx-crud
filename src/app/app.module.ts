@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {SharedModule} from './shared/shared.module';
 
 // ngrx elements
-import * as gamesReducer from './games/shared/games.reducers';
+import * as gamesReducer from './games/store/games.reducers';
 import {ActionReducerMap, StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 

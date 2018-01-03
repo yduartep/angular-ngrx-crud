@@ -1,7 +1,7 @@
 import * as gameActions from './games.actions';
 import {AppAction} from '../../app.action';
 import {createFeatureSelector, createSelector} from '@ngrx/store';
-import {Game} from './game';
+import {Game} from '../shared/game';
 
 export interface State {
   data: Game[];

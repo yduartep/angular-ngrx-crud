@@ -13,8 +13,8 @@ import {
   RemoveGame, RemoveGameError, RemoveGameSuccess,
   UpdateGame, UpdateGameError, UpdateGameSuccess
 } from './games.actions';
-import {GamesService} from './games.service';
-import {Game} from './game';
+import {GamesService} from '../shared/games.service';
+import {Game} from '../shared/game';
 
 @Injectable()
 export class GameEffects {

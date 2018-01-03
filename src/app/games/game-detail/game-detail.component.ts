@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AppState} from '../../app.state';
 import {Store} from '@ngrx/store';
-import {GetGame} from '../shared/games.actions';
+import {GetGame} from '../store/games.actions';
 import {Observable} from 'rxjs/Observable';
 import {Game} from '../shared/game';
-import * as gameActions from '../shared/games.actions';
-import {getGame} from '../shared/games.reducers';
+import * as gameActions from '../store/games.actions';
+import {getGame} from '../store/games.reducers';
 import {Platform} from '../shared/platform';
 import {PlatformsService} from '../shared/platforms.service';
 
@@ -16,6 +16,7 @@ import {PlatformsService} from '../shared/platforms.service';
   styleUrls: ['./game-detail.component.css']
 })
 export class GameDetailComponent implements OnInit {
+  title = 'Game Details';
   game: Observable<Game>;
   platforms: Platform[] = [];
 

@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {Game} from './game';
+import {Game} from '../shared/game';
 
 export const GET_GAMES = '[ALL] Games';
 export const GET_GAMES_SUCCESS = '[ALL] Games Success';

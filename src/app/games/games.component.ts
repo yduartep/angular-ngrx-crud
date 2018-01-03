@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Router} from '@angular/router';
 import {AppState} from '../app.state';
-import {GetAllGames} from './shared/games.actions';
+import {GetAllGames} from './store/games.actions';
 import {
   getCreateError, getDeleteError, getGamesError, getUpdateError, isCreated, isDeleted,
   isUpdated
-} from './shared/games.reducers';
+} from './store/games.reducers';
 
 @Component({
   selector: 'app-games',

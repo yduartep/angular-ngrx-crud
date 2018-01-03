@@ -12,8 +12,8 @@ import {GameEditComponent} from './game-edit/game-edit.component';
 // ngrx elements
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
-import {GameEffects} from './shared/games.effects';
-import * as gameReducer from './shared/games.reducers';
+import {GameEffects} from './store/games.effects';
+import * as gameReducer from './store/games.reducers';
 
 export const gamesRoutes: Routes = <Routes>[{
   path: '',

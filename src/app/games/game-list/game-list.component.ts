@@ -3,8 +3,8 @@ import {Store} from '@ngrx/store';
 import {AppState} from '../../app.state';
 import {Game} from '../shared/game';
 import {Observable} from 'rxjs/Observable';
-import * as gameActions from '../shared/games.actions';
-import {getAllGames} from '../shared/games.reducers';
+import * as gameActions from '../store/games.actions';
+import {getAllGames} from '../store/games.reducers';
 import {PlatformsService} from '../shared/platforms.service';
 import {Platform} from '../shared/platform';
 
@@ -14,6 +14,7 @@ import {Platform} from '../shared/platform';
   styleUrls: ['./game-list.component.css']
 })
 export class GameListComponent implements OnInit {
+  title = 'List of Games';
   games: Observable<Game[]>;
   platforms: Platform[] = [];
 

@@ -16,7 +16,9 @@
     "typescript",
     "store",
     "effects",
-    "redux"
+    "redux",
+    "crud",
+    "http"
   ],
   "author": "Yahima Duarte <layahi@gmail.com>",
   "scripts": {

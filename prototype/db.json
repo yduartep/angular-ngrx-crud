@@ -2,8 +2,8 @@
   "games": [
     {
       "image": "horizon_zero_dawn.jpg",
-      "name": "Horizon Zero Dawn 123",
-      "releaseDate": "2017-02-28",
+      "name": "Horizon Zero Dawn",
+      "releaseDate": "2017-05-25",
       "platforms": [
         1,
         2,
@@ -13,21 +13,20 @@
       "id": 1
     },
     {
-      "id": 2,
       "image": "destiny2.jpg",
       "name": "Destiny 2",
       "releaseDate": "2017-09-06",
       "platforms": [
         1,
-        2,
         3
       ],
-      "description": "Destiny 2 is an online-only multiplayer first-person shooter video game developed by Bungie and published by Activision. It was released for PlayStation 4 and Xbox One on September 6, 2017, followed by a Microsoft Windows version the following month. It is the sequel to 2014's Destiny and its subsequent expansions."
+      "description": "Destiny 2 is an online-only multiplayer first-person shooter video game developed by Bungie and published by Activision. It was released for PlayStation 4 and Xbox One on September 6, 2017, followed by a Microsoft Windows version the following month. It is the sequel to 2014's Destiny and its subsequent expansions.",
+      "id": 2
     },
     {
       "image": "gran_turismo.jpg",
       "name": "Gran Turismo Sport",
-      "releaseDate": "2017-10-17",
+      "releaseDate": "2017-10-16",
       "platforms": [
         1,
         2,
