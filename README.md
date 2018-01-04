@@ -1,6 +1,10 @@
-# AngularNgrxCrud
+# Angular Ngrx Crud Demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0. This project display a simple list of games that can be updated, removed, viewed and inserted a new one using http services (through HttpClient) and NgRx library to manage the state changes. To edit a game, a dispatch event with the action "UPDATE_GAME" is thrown, the reducer related to the module games is executed and the state is changed updating the information of specific game. An “ngrx effect” class is implemented by module and will be triggered when we dispatch actions with the store. Using some selectors defined in my reducer class we can monitor the success of each action and exceute some specific code after that.
+
+## Mock server
+
+Run `npm run start:mocks` for a mock server. Navigate to `http://localhost:3000/api/games` to obtain the list of games or to `http://localhost:3000/api/platforms` to see the actual list of game platforms.
 
 ## Development server
 
