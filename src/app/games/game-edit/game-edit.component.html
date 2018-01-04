@@ -60,8 +60,11 @@
               <button type="button" (click)="onBack()" class="btn btn-secondary btn-sm">
                 <i class="fa fa-arrow-left"></i> Back
               </button>
-              <button type="button" (click)="reset()" *ngIf="mode > 0" class="btn btn-danger btn-sm">
+              <button type="button" (click)="reset()" class="btn btn-warning btn-sm">
                 <i class="fa fa-undo"></i> Reset
+              </button>
+              <button type="button" (click)="delete(game.id)" class="btn btn-danger btn-sm">
+                <i class="fa fa-times"></i> Delete
               </button>
             </div>
           </div>

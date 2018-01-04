@@ -7,6 +7,7 @@ import {GetGame, UpdateGame} from '../store/games.actions';
 import {getGame} from '../store/games.reducers';
 import {Platform} from '../shared/platform';
 import {getAllPlatforms} from '../store/platforms.reducers';
+import * as gameActions from '../store/games.actions';
 
 @Component({
   selector: 'app-game-edit',
@@ -63,10 +64,20 @@ export class GameEditComponent implements OnInit {
    * Reset all fields in the form
    */
   reset() {
-    this.game.image = '';
     this.game.name = '';
     this.game.description = '';
     this.game.releaseDate = null;
+    this.game.platforms = [];
+  }
+
+  /**
+   * Delete the selected hero
+   * @param {number} id the hero id
+   */
+  delete(id: number) {
+    if (confirm('Are you sure do you want to delete this Game?')) {
+      this.store.dispatch(new gameActions.RemoveGame(id));
+    }
   }
 
 }

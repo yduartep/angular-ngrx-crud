@@ -47,7 +47,6 @@ export class GameCreateComponent implements OnInit {
   }
 
   reset() {
-    this.game.image = '';
     this.game.name = '';
     this.game.releaseDate = null;
     this.game.description = '';
