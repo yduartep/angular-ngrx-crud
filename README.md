@@ -29,6 +29,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 3. An **“ngrx effect”** class is implemented (GameEffects) by module and will be triggered when we dispatch actions with the store.
 4. Using some selectors defined in my **reducer** class, we can monitor the success of each action and exceute some specific code after that (like display a success message and/or come back to the home page).
 
+See next diagram:
+
+![Flow Diagram](https://github.com/yduartep/angular-ngrx-crud/blob/master/Diagram%20ngrx.png)
+
 # Useful Commands
 
 ## Code scaffolding
