@@ -38,19 +38,34 @@ See next diagram:
 
 - In the module class (games.module.ts) are imported the reducers to be called by each feature using the class **StoreModule** and also the **EffectsModule**.
 
-`
+```
+const reducers: ActionReducerMap<any> = {
+  games: gameReducer.reducer,
+  platforms: platformReducer.reducer
+};
+
 @NgModule({
-  imports: [...
+  imports: [
+    SharedModule,
     GamesRoutingModule,
-    StoreModule.forFeature('games', gameReducer.reducer),
-    StoreModule.forFeature('platforms', platformReducer.reducer),
+    StoreModule.forRoot(reducers),
     EffectsModule.forRoot([GameEffects, PlatformEffects])
   ], ...
 })
 export class GamesModule {}
-`
+```
 
+- In the main component of the specific module (*games.component.ts*), I have centralized all the actions to be executed when a CRUD operation has successfully finish or the error thrown using a subscription to the specific select defined in the reducer:
 
+```
+this.store.select(isDeleted).subscribe((deleted) => {
+    this.actionSuccess(...);
+});
+this.store.select(getDeleteError).subscribe((error) => {
+    this.actionError(...);
+});
+    
+```
 # Useful Commands
 
 ## Code scaffolding
