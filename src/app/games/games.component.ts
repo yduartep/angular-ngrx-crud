@@ -27,62 +27,56 @@ export class GamesComponent implements OnInit {
     this.store.dispatch(new GetAllPlatforms());
 
     // subscriptions when success or error action
-    this.store.select(getGamesError).subscribe((error) => {
-      if (error) {
-        this.loadingError();
-      }
-    });
-    this.store.select(isDeleted).subscribe((deleted) => {
-      if (deleted) {
-        this.actionSuccess('deleted');
-      }
+    this.store.select(getGamesError).subscribe((error) => this.loadingError(error));
+    this.store.select(isDeleted).subscribe((done) => {
+      this.actionSuccess(done, 'The game was deleted successfully!!!');
     });
     this.store.select(getDeleteError).subscribe((error) => {
-      if (error) {
-        this.actionError('deleting');
-      }
+      this.actionError(error, 'Error while deleting the game');
     });
-    this.store.select(isUpdated).subscribe((updated) => {
-      if (updated) {
-        this.actionSuccess('updated');
-      }
+    this.store.select(isUpdated).subscribe((done) => {
+      this.actionSuccess(done, 'The game was updated successfully!!!');
     });
     this.store.select(getUpdateError).subscribe((error) => {
-      if (error) {
-        this.actionError('updating');
-      }
+      this.actionError(error, 'Error while updating the game');
     });
-    this.store.select(isCreated).subscribe((created) => {
-      if (created) {
-        this.actionSuccess('created');
-      }
+    this.store.select(isCreated).subscribe((done) => {
+      this.actionSuccess(done, 'The game was created successfully!!!');
     });
     this.store.select(getCreateError).subscribe((error) => {
-      if (error) {
-        this.actionError('creating');
-      }
+      this.actionError(error, 'Error while creating the game');
     });
   }
 
   /**
    * Display error message if load of games fails
    */
-  loadingError() {
-    alert('Error while loading the list of games');
+  loadingError(error) {
+    if (error) {
+      alert('Error while loading the list of games');
+    }
   }
 
   /**
    * Display success message after execute specific action over the game
+   * @param done true if action was completed or false
+   * @param message the message to be displayed
    */
-  actionSuccess(action) {
-    alert('The game was ' + action + ' successfully!!!');
-    this.router.navigate(['/games']);
+  actionSuccess(done: boolean, message: string) {
+    if (done) {
+      alert(message);
+      this.router.navigate(['/games']);
+    }
   }
 
   /**
    * Display error message is execution of action fails
+   * @param error the error thrown
+   * @param message the message to be displayed
    */
-  actionError(action) {
-    alert('Error while ' + action + ' the game');
+  actionError(error, message: string) {
+    if (error) {
+      alert(message);
+    }
   }
 }
