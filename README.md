@@ -33,6 +33,24 @@ See next diagram:
 
 ![Flow Diagram](https://github.com/yduartep/angular-ngrx-crud/blob/master/Diagram%20ngrx.png)
 
+## Structure
+- Each module have a folder **store** where will be saved the **actions** (games.actions.ts), **effects** (games.effects.ts) and **reducers** (games.reducers.ts).
+
+- In the module class (games.module.ts) are imported the reducers to be called by each feature using the class **StoreModule** and also the **EffectsModule**.
+
+`
+@NgModule({
+  imports: [...
+    GamesRoutingModule,
+    StoreModule.forFeature('games', gameReducer.reducer),
+    StoreModule.forFeature('platforms', platformReducer.reducer),
+    EffectsModule.forRoot([GameEffects, PlatformEffects])
+  ], ...
+})
+export class GamesModule {}
+`
+
+
 # Useful Commands
 
 ## Code scaffolding
