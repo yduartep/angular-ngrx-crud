@@ -7,7 +7,7 @@ import * as gameActions from '../store/games.actions';
 import {getAllGames} from '../store/games.reducers';
 import {PlatformsService} from '../shared/platforms.service';
 import {Platform} from '../shared/platform';
-import {getAllPlatforms} from "../store/platforms.reducers";
+import {getAllPlatforms} from '../store/platforms.reducers';
 
 @Component({
   selector: 'app-game-list',

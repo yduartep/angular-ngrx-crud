@@ -8,9 +8,9 @@ import {APP_BASE_HREF, CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {Store, StoreModule} from '@ngrx/store';
+import {Store} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
-import {MockStore} from "./store/mock-store";
+import {MockStore} from './store/mock-store';
 
 describe('GamesComponent', () => {
   let component: GamesComponent;

@@ -1,6 +1,6 @@
 import {Action} from '@ngrx/store';
 import {Game} from '../shared/game';
-import {Platform} from "../shared/platform";
+import {Platform} from '../shared/platform';
 
 export const GET_PLATFORMS = '[ALL] Platforms';
 export const GET_PLATFORMS_SUCCESS = '[ALL] Platforms Success';
