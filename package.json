@@ -30,7 +30,7 @@
     "e2e": "ng e2e",
     "start:mocks": "json-server prototype/db.json --routes prototype/routes.json"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
