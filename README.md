@@ -1,7 +1,7 @@
 # Angular Ngrx Crud Demo
 
+This project display a simple list of games that can be updated, removed, viewed and inserted a new one using http services (through **HttpClient**) and **@ngrx/store and @ngrx/effects** libraries grouping information by modules. The **ngrx** is a Redux inspired library created for Angular to manage the state changes.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0. 
-This project display a simple list of games that can be updated, removed, viewed and inserted a new one using http services (through **HttpClient**) and **Ngrx/store library** that is a Redux inspired library created for Angular to manage the state changes.
 
 # Getting Started
 To start using the application follow the next steps:
