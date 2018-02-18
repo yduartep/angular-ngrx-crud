@@ -1,11 +1,9 @@
 import {TestBed, async} from '@angular/core/testing';
 import {Actions} from '@ngrx/effects';
-import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {GameEffects} from './games.effects';
 import {GamesService} from '../shared/games.service';
-import {cold, hot, getTestScheduler} from 'jasmine-marbles';
-import {empty} from 'rxjs/observable/empty';
+import {cold} from 'jasmine-marbles';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/throw';
 import {Observable} from 'rxjs/Observable';
