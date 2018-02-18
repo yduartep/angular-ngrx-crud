@@ -25,10 +25,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "pretest": "npm run lint",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "start:mocks": "json-server prototype/db.json --routes prototype/routes.json"
+    "e2e": "ng e2e"
   },
   "private": false,
   "dependencies": {
@@ -44,6 +44,7 @@
     "@ngrx/core": "^1.2.0",
     "@ngrx/effects": "^4.1.1",
     "@ngrx/store": "^4.1.1",
+    "angular-in-memory-web-api": "^0.5.3",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
@@ -60,7 +61,6 @@
     "codelyzer": "^4.0.1",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
-    "json-server": "^0.9.5",
     "karma": "~1.7.0",
     "karma-chrome-launcher": "~2.1.1",
     "karma-cli": "~1.0.1",

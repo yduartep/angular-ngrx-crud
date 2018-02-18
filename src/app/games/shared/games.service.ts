@@ -45,7 +45,7 @@ export class GamesService {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-    return this.http.post<Game>(this.URL, JSON.stringify(data), {headers: headers});
+    return this.http.post<Game>(this.URL, data, {headers: headers});
   }
 
   /**
@@ -54,13 +54,9 @@ export class GamesService {
    * @returns gets the response
    */
   public update(game: Game): Observable<Game> {
-    const id = game.id;
-    const data = {...game};
-    delete data.id;
-
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-    return this.http.put<Game>(this.URL + '/' + id, JSON.stringify(data), {headers: headers});
+    return this.http.put<Game>(this.URL + '/' + game.id, game, {headers: headers});
   }
 }

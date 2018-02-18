@@ -9,6 +9,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {BrowserModule} from '@angular/platform-browser';
 
 describe('AppComponent', () => {
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [

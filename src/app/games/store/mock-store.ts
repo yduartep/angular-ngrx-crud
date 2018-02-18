@@ -12,6 +12,7 @@ export class MockStore<T> extends BehaviorSubject<T> {
   dispatch = (action: Action): void => {
   }
 
+  // tslint:disable-next-line:no-shadowed-variable
   select = <T, R>(pathOrMapFn: any, ...paths: string[]): Observable<R> => {
     return map.call(this, pathOrMapFn);
   }
