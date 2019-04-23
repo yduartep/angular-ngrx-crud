@@ -1,6 +1,6 @@
 {
   "name": "angular-ngrx-crud",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Game application used to demostrate the use of ngRx store & effects for CRUD operations",
   "repository": {
     "url": "https://github.com/yduartep/angular-ngrx-crud"
@@ -8,7 +8,7 @@
   "keywords": [
     "angular-cli",
     "angular",
-    "angular 5",
+    "angular 7",
     "angular sample",
     "angular demo",
     "ngrx",
