@@ -13,10 +13,6 @@ cd angular-ngrx-crud
 npm i
 ```
 
-## Mock server
-
-Run `npm run start:mocks` for a mock server. Navigate to `http://localhost:3000/api/games` to obtain the list of games or to `http://localhost:3000/api/platforms` to see the actual list of game platforms. The api rest is built using **json-server** library.
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
