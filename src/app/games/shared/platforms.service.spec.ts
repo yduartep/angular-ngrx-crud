@@ -1,24 +1,24 @@
-import {async, TestBed, inject, getTestBed} from '@angular/core/testing';
+import {async, getTestBed, inject, TestBed} from '@angular/core/testing';
 import {HttpClientModule} from '@angular/common/http';
-import {HttpClientTestingModule, HttpTestingController, TestRequest} from '@angular/common/http/testing';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {BrowserModule} from '@angular/platform-browser';
-import { Platform } from './platform';
-import { PlatformsService } from './platforms.service';
+import {Platform} from './platform';
+import {PlatformsService} from './platforms.service';
 
 const BASE_URL = 'http://localhost:3000/api/platforms';
 const MOCK_DATA: Platform[] = [
   {
-      'id': 1,
-      'name': 'Xbox One',
-      checked: false
+    id: 1,
+    name: 'Xbox One',
+    checked: false
   }, {
-      'id': 2,
-      'name': 'PlayStation 4',
-      checked: false
+    id: 2,
+    name: 'PlayStation 4',
+    checked: false
   }, {
-      'id': 3,
-      'name': 'PC',
-      checked: false
+    id: 3,
+    name: 'PC',
+    checked: false
   }
 ];
 

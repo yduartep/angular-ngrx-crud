@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {Game} from './game';
 
 @Injectable()
@@ -24,7 +24,7 @@ export class GamesService {
    * @returns gets the list of objects found
    */
   public findAll(params?): Observable<Game[]> {
-    return this.http.get<Game[]>(this.URL, {params: params});
+    return this.http.get<Game[]>(this.URL, {params});
   }
 
   /**
@@ -45,7 +45,7 @@ export class GamesService {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-    return this.http.post<Game>(this.URL, data, {headers: headers});
+    return this.http.post<Game>(this.URL, data, {headers});
   }
 
   /**
@@ -57,6 +57,6 @@ export class GamesService {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
 
-    return this.http.put<Game>(this.URL + '/' + game.id, game, {headers: headers});
+    return this.http.put<Game>(this.URL + '/' + game.id, game, {headers});
   }
 }

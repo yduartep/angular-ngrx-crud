@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 
-import {Routes, RouterModule} from '@angular/router';
-
+import {RouterModule, Routes} from '@angular/router';
 // components
 import {GamesComponent} from './games.component';
 import {GameListComponent} from './game-list/game-list.component';
@@ -9,7 +8,7 @@ import {GameCreateComponent} from './game-create/game-create.component';
 import {GameDetailComponent} from './game-detail/game-detail.component';
 import {GameEditComponent} from './game-edit/game-edit.component';
 
-export const gamesRoutes: Routes = <Routes>[{
+export const gamesRoutes: Routes = [{
   path: '',
   component: GamesComponent,
   children: [

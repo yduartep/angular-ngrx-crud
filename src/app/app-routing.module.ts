@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/games', pathMatch: 'full'},
   {
     path: 'games',
-    loadChildren: 'app/games/games.module#GamesModule'
+    loadChildren: './games/games.module#GamesModule'
   },
   {path: '**', component: PageNotFoundComponent}
 ];

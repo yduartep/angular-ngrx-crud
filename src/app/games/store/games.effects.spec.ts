@@ -1,29 +1,25 @@
-import {TestBed, async} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 import {Actions} from '@ngrx/effects';
-import {EffectsModule} from '@ngrx/effects';
 import {GameEffects} from './games.effects';
-import {GamesService} from '../shared/games.service';
 import {cold} from 'jasmine-marbles';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/observable/throw';
-import {Observable} from 'rxjs/Observable';
+
+import {of, throwError} from 'rxjs';
 import {
-  GET_GAMES_SUCCESS,
-  GET_GAMES,
-  GetAllGamesSuccess,
-  GetAllGamesError,
-  GET_GAME,
-  GetGameSuccess,
-  GetGameError,
-  UPDATE_GAME,
-  UpdateGameSuccess,
-  UpdateGameError,
-  CREATE_GAME,
-  AddGameSuccess,
   AddGameError,
+  AddGameSuccess,
+  CREATE_GAME,
   DELETE_GAME,
+  GET_GAME,
+  GET_GAMES,
+  GetAllGamesError,
+  GetAllGamesSuccess,
+  GetGameError,
+  GetGameSuccess,
+  RemoveGameError,
   RemoveGameSuccess,
-  RemoveGameError
+  UPDATE_GAME,
+  UpdateGameError,
+  UpdateGameSuccess
 } from './games.actions';
 import {Game} from '../shared/game';
 
@@ -59,7 +55,7 @@ describe('GameEffects', () => {
 
   describe('getAllGames$', () => {
     it('should return a GET_GAMES_SUCCESS action, with the games, on success', () => {
-      service.findAll.and.returnValue(Observable.of(MOCK_DATA));
+      service.findAll.and.returnValue(of(MOCK_DATA));
       const source = cold('a', {a: {type: GET_GAMES}});
       const effects = new GameEffects(new Actions(source), service);
       const expected = cold('a', {a: new GetAllGamesSuccess(MOCK_DATA)});
@@ -69,7 +65,7 @@ describe('GameEffects', () => {
 
     it('should return a GET_GAMES_ERROR action, with the error', () => {
       const error = new Error('Error loading games');
-      service.findAll.and.returnValue(Observable.throw(error));
+      service.findAll.and.returnValue(throwError(error));
 
       const source = cold('a', {a: {type: GET_GAMES}});
       const effects = new GameEffects(new Actions(source), service);
@@ -83,7 +79,7 @@ describe('GameEffects', () => {
   describe('getGame$', () => {
     it('should return a GET_GAME_SUCCESS action, with the game found, on success', () => {
       const data = MOCK_DATA[0];
-      service.findById.and.returnValue(Observable.of(data));
+      service.findById.and.returnValue(of(data));
       const source = cold('a', {a: {type: GET_GAME}});
       const effects = new GameEffects(new Actions(source), service);
       const expected = cold('a', {a: new GetGameSuccess(data)});
@@ -94,7 +90,7 @@ describe('GameEffects', () => {
     it('should return a GET_GAME_ERROR action, with the error', () => {
       const data = MOCK_DATA[0];
       const error = new Error(`Error loading the game with id ${data.id}`);
-      service.findById.and.returnValue(Observable.throw(error));
+      service.findById.and.returnValue(throwError(error));
 
       const source = cold('a', {a: {type: GET_GAME}});
       const effects = new GameEffects(new Actions(source), service);
@@ -108,7 +104,7 @@ describe('GameEffects', () => {
   describe('updateGame$', () => {
     it('should return a UPDATE_GAME_SUCCESS action, without any data', () => {
       const data = {...MOCK_DATA[0], description: 'Description updated'};
-      service.update.and.returnValue(Observable.of(data));
+      service.update.and.returnValue(of(data));
       const source = cold('a', {a: {type: UPDATE_GAME}});
       const effects = new GameEffects(new Actions(source), service);
       const expected = cold('a', {a: new UpdateGameSuccess()});
@@ -119,7 +115,7 @@ describe('GameEffects', () => {
     it('should return a UPDATE_GAME_ERROR action, with the error', () => {
       const data = {...MOCK_DATA[0], description: 'Description updated'};
       const error = new Error(`Error updating the game with id ${data.id}`);
-      service.update.and.returnValue(Observable.throw(error));
+      service.update.and.returnValue(throwError(error));
 
       const source = cold('a', {a: {type: UPDATE_GAME}});
       const effects = new GameEffects(new Actions(source), service);
@@ -140,7 +136,7 @@ describe('GameEffects', () => {
         platforms: [1, 2],
         description: 'Descripion of Game 3'
       };
-      service.insert.and.returnValue(Observable.of(data));
+      service.insert.and.returnValue(of(data));
       const source = cold('a', {a: {type: CREATE_GAME}});
       const effects = new GameEffects(new Actions(source), service);
       const expected = cold('a', {a: new AddGameSuccess(data.id)});
@@ -158,7 +154,7 @@ describe('GameEffects', () => {
         description: 'Descripion of Game 3'
       };
       const error = new Error(`Error adding new game with id ${data.id}`);
-      service.insert.and.returnValue(Observable.throw(error));
+      service.insert.and.returnValue(throwError(error));
 
       const source = cold('a', {a: {type: CREATE_GAME}});
       const effects = new GameEffects(new Actions(source), service);
@@ -172,7 +168,7 @@ describe('GameEffects', () => {
   describe('removeGame$', () => {
     it('should return a DELETE_GAME_SUCCESS action, with the game deleted, on success', () => {
       const data = MOCK_DATA[1];
-      service.delete.and.returnValue(Observable.of(data));
+      service.delete.and.returnValue(of(data));
       const source = cold('a', {a: {type: DELETE_GAME}});
       const effects = new GameEffects(new Actions(source), service);
       const expected = cold('a', {a: new RemoveGameSuccess(data)});
@@ -183,7 +179,7 @@ describe('GameEffects', () => {
     it('should return a DELETE_GAME_ERROR action, with the error', () => {
       const data = MOCK_DATA[1];
       const error = new Error(`Error removing the game with id ${data.id}`);
-      service.delete.and.returnValue(Observable.throw(error));
+      service.delete.and.returnValue(throwError(error));
 
       const source = cold('a', {a: {type: DELETE_GAME}});
       const effects = new GameEffects(new Actions(source), service);

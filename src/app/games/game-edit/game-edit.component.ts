@@ -3,11 +3,11 @@ import {Game} from '../shared/game';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AppState} from '../../app.state';
 import {Store} from '@ngrx/store';
+import * as gameActions from '../store/games.actions';
 import {GetGame, UpdateGame} from '../store/games.actions';
 import {getGame} from '../store/games.reducers';
 import {Platform} from '../shared/platform';
 import {getAllPlatforms} from '../store/platforms.reducers';
-import * as gameActions from '../store/games.actions';
 
 @Component({
   selector: 'app-game-edit',
@@ -27,7 +27,7 @@ export class GameEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.store.dispatch(new GetGame(+params['id']));
+      this.store.dispatch(new GetGame(+params.id));
     });
     this.store.select(getAllPlatforms).subscribe(result => {
       this.platforms = result;
@@ -72,7 +72,6 @@ export class GameEditComponent implements OnInit {
 
   /**
    * Delete the selected hero
-   * @param {number} id the hero id
    */
   delete(id: number) {
     if (confirm('Are you sure do you want to delete this Game?')) {

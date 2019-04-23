@@ -10,11 +10,44 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {Store} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
-import {MockStore} from './store/mock-store';
+import * as gamesReducer from './store/games.reducers';
+import * as platformsReducer from './store/platforms.reducers';
+import {MockStore, provideMockStore} from '@ngrx/store/testing';
 
 describe('GamesComponent', () => {
   let component: GamesComponent;
   let fixture: ComponentFixture<GamesComponent>;
+  let mockStore: MockStore<{ games: gamesReducer.State, platforms: platformsReducer.State }>;
+  const initialState = {
+    games: {
+      data: [
+        {
+          id: 1,
+          image: 'horizon_zero_dawn.jpg',
+          name: 'Horizon Zero Dawn',
+          releaseDate: '2017-02-28',
+          platforms: [
+            2
+          ],
+          description: 'Horizon Zero Dawn is an action role-playing video game developed by Guerrilla'
+        }, {
+          id: 2,
+          image: 'destiny2.jpg',
+          name: 'Destiny 2',
+          releaseDate: '2017-09-06',
+          platforms: [
+            1,
+            2,
+            3
+          ],
+          description: 'Destiny 2 is an online-only multiplayer first-person shooter video game developed by Bungie'
+        }
+      ],
+      selected: null,
+      action: 'GET_GAMES',
+      done: true
+    }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -34,41 +67,12 @@ describe('GamesComponent', () => {
         GamesService,
         PlatformsService,
         {provide: APP_BASE_HREF, useValue: '/'},
-        {
-          provide: Store, useValue: new MockStore({
-          games: {
-            data: [
-              {
-                'id': 1,
-                'image': 'horizon_zero_dawn.jpg',
-                'name': 'Horizon Zero Dawn',
-                'releaseDate': '2017-02-28',
-                'platforms': [
-                  2
-                ],
-                'description': 'Horizon Zero Dawn is an action role-playing video game developed by Guerrilla'
-              }, {
-                'id': 2,
-                'image': 'destiny2.jpg',
-                'name': 'Destiny 2',
-                'releaseDate': '2017-09-06',
-                'platforms': [
-                  1,
-                  2,
-                  3
-                ],
-                'description': 'Destiny 2 is an online-only multiplayer first-person shooter video game developed by Bungie'
-              }
-            ],
-            selected: null,
-            action: 'GET_GAMES',
-            done: true
-          }
-        })
-        }
+        provideMockStore({initialState})
       ]
     })
       .compileComponents();
+
+    mockStore = TestBed.get(Store);
   }));
 
   beforeEach(() => {

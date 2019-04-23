@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {Platform} from './platform';
 
 @Injectable()
@@ -25,7 +25,7 @@ export class PlatformsService {
    * @returns gets the list of objects found
    */
   public findAll(params?): Observable<Platform[]> {
-    return this.http.get<Platform[]>(this.URL, {params: params});
+    return this.http.get<Platform[]>(this.URL, {params});
   }
 
   /**
