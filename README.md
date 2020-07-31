@@ -10,7 +10,7 @@ To start using the application follow the next steps:
 ```
 git clone https://github.com/yduartep/angular-ngrx-crud.git
 cd angular-ngrx-crud
-npm i
+npm install
 ```
 
 ## Development server
@@ -66,7 +66,7 @@ this.store.select(getDeleteError).subscribe((error) => {
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name or ng g c component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
